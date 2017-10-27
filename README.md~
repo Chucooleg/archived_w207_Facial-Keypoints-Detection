@@ -16,6 +16,6 @@ http://danielnouri.org/notes/2014/12/17/using-convolutional-neural-nets-to-detec
 
 ## Files
 
-Description | File Name
------------ | -----------
-w207 Theano Notebook | NeuralNets.ipynb
+Description | File Name | Last Author
+----------- | ----------- | -----------
+w207 Theano Notebook | NeuralNets.ipynb | Todd's Copy
