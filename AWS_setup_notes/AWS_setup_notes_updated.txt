@@ -1,0 +1,89 @@
+https://www.kaggle.com/c/facial-keypoints-detection#deep-learning-tutorial
+
+--------------------------------------------------------
+# Use AWS instance pre-installed with anaconda, theano and tensorflow
+
+# AWS EC2 console
+# set location to N.Virginia (top right)
+# launch instance from Community AMI  ami-37bb714d 
+# g2.2xlarge  (don't do spot instance)
+# protect against accidental termination
+# use w205 hadoop cluster security group
+"""
++ Inbound Rules
+SSH | TCP | 22 | Custom | 0.0.0.0/0
+Custom TCP Rule | TCP | 4040 | Custom | 0.0.0.0/0 | spark
+Custom TCP Rule | TCP | 7180 | Custom | 0.0.0.0/0 | cloudera manager
+Custom TCP Rule | TCP | 8080 | Custom | 0.0.0.0/0 | web server
+Custom TCP Rule | TCP | 8888 | Custom | 0.0.0.0/0 | jupyter notebook
+Custom TCP Rule | TCP | 10000 | Custom | 0.0.0.0/0 | hive
+Custom TCP Rule | TCP | 50070 | Custom | 0.0.0.0/0 | hadoop
+--> this means any IP address can come in
+
++ Inbound Rules (can use default)
+All traffic | All | whatever | Custom 0.0.0.0/0
+--> this means I allow myself to go anywhere
+"""
+# Download you keyfile, the following are mine
+# keyfile FK_3.ppk (putty) or FK_3.pem (SSH)
+
+---------------------------------------------------------
+# How to launch Jupyter Notebook with EC2 
+
+# AWS EC2
+jupyter notebook --no-browser --port=8888
+# !!! it will provide you a token
+# http://localhost:8888/?token=2ea9e1186aca105b03843eca77e2d4e92ca79be5059130a3
+# copy everything after "token=" to clipboard, this is your password to login to jupyter notebook on a local browser later
+
+# babun / shell
+# cd to where your .pem key file is
+ssh -i "C:\Users\chuco\Downloads\FK_3.pem" -L 8000:localhost:8888 ubuntu@ec2-52-205-207-157.compute-1.amazonaws.com
+
+# then launch in local chrome or firefox browser
+http://localhost:8000
+# then paste the copied token into the password field
+
+---------------------------------------------------------
+# Install lasagne
+
+# not sure if these couple installations were necessary
+sudo pip install ipython nose
+sudo pip install -r https://raw.githubusercontent.com/Lasagne/Lasagne/master/requirements.txt
+sudo pip install https://github.com/Lasagne/Lasagne/archive/master.zip
+sudo pip install -r https://raw.githubusercontent.com/dnouri/kfkd-tutorial/master/requirements-2.txt
+
+# install Lasagne for python 3
+pip3 install --user --upgrade --no-deps https://github.com/Lasagne/Lasagne/archive/master.zip
+
+# now try mnist.py again
+python3 mnist.py
+---------------------------------------------------------
+
+# move data files form local computer to AWS (windows only)
+
+#1. Download pscp.exe
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
+#2. Launch windows command prompt
+#3. Navigate to the directory where pscp.exe is
+C:\Program Files\PuTTY
+
+#4. use pscp to upload files to root directory
+#pscp.exe -i <ppk path> <kaggle csv file path> <root@...com>:<AWS root directory>
+pscp.exe -i C:\Users\chuco\Downloads\FK_3.ppk "F:\001_Learn_UCB\207_MachineLearningIntro\Final_Project\kaggle_data\*" ubuntu@ec2-52-205-207-157.compute-1.amazonaws.com:
+
+#5. if prompted for passphrase, use "todd", or whatever passphrase you set for your key file
+
+#6. move all data files into /data
+cd ~
+mkdir data
+mkdir data//kaggle-facial-keypoint-detection
+mv *.csv data//kaggle-facial-keypoint-detection
+
+#7. try Kaggle competition example
+python kfkd.py 
+# if kfkd.py not found, paste script from tutorial
+# http://danielnouri.org/notes/2014/12/17/using-convolutional-neural-nets-to-detect-facial-keypoints-tutorial/
+vi kfkd.py #and paste it in
+---------------------------------------------------------
