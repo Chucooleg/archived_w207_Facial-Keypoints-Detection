@@ -6,6 +6,15 @@ https://www.kaggle.com/c/facial-keypoints-detection
 * 30 regression outputs (x,y of 15 labels)
 * Practice Convoutional Neural Networks
 
+## How to use this repo
+
+* Find location for important codes from this README
+* Save important codes for the team under **/production_code**, feel free to add any subdirectories if necessary
+* Save your own exploratory code under **/individual_code**, there is a directory under your name
+* Refrain from pushing large datasets to this repo. Usually people keep code and data in separate drives. This also prevents another member from cloning a heavy repo to a small instance or local computer
+* To share any intermediate datasets, you can save it to another cloud location and provide a link in this README
+* Please take authorship in this repo. Improve its structure, fill it with contents, expand the README(s)
+
 ## General Links
 
 Description | Link
@@ -19,8 +28,15 @@ Kaggle Tutorial with dataset and Theano | http://danielnouri.org/notes/2014/12/1
 
 Description | File Name | Last Author
 ----------- | ----------- | -----------
-w207 Theano Notebook | NeuralNets.ipynb | Todd's Copy
 AWS AMI setup instuctions | /AWS_setup_notes/AWS_setup_notes_updated.txt | Legg
+
+## Reference Code Files
+
+Description | File Name | Author
+----------- | ----------- | -----------
+w207 Theano Demo | ./reference_code/NeuralNets.ipynb | Todd 
+Lsagne Test | ./reference_code/mnist.ipynb | Lasagne Library
+Nouri Demo final solution | ./code/kfkd.ipynb | Nouri 
 
 ## Feature Engineering Files
 
