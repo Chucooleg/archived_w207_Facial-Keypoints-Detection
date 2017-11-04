@@ -59,6 +59,18 @@ pip3 install --user --upgrade --no-deps https://github.com/Lasagne/Lasagne/archi
 # now try mnist.py again
 python3 mnist.py
 ---------------------------------------------------------
+# install other python packages
+
+# install tinker, nolearn
+sudo apt-get install python3-tk
+sudo pip3 install nolearn
+
+# pylearn2
+git clone git://github.com/lisa-lab/pylearn2.git
+cd pylearn2
+sudo python3 setup.py develop
+
+---------------------------------------------------------
 
 # move data files form local computer to AWS (windows only)
 

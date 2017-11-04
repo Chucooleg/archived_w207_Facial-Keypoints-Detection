@@ -1,0 +1,50 @@
+python3 kfkd.py
+python3 kfkd2.py
+
+
+from theano.tensor.signal.pool import pool_2d as max_pool_2d
+# NOT WORKING
+from theano.tensor.signal.pool import max_pool_2d
+# CHANGE TO
+from theano.tensor.signal.pool import pool_2d as max_pool_2d
+
+
+
+
+To use this script, first run this to fit your first model:
+  python3 kfkd2.py fit
+Then train a bunch of specialists that intiliaze their weights from
+your first model:
+  python3 kfkd2.py fit_specialists net.pickle
+Plot their error curves:
+  python3 kfkd2.py plot_learning_curves net-specialists.pickle
+And finally make predictions to submit to Kaggle:
+  python3 kfkd2.py predict net-specialists.pickle
+
+
+
+
+Traceback (most recent call last):
+  File "kfkd2.py", line 413, in <module>
+    func(*sys.argv[2:])
+  File "kfkd2.py", line 218, in fit
+    net.fit(X, y)
+  File "/usr/local/lib/python3.5/dist-packages/nolearn/lasagne/base.py", line 541, in fit
+    self.initialize()
+  File "/usr/local/lib/python3.5/dist-packages/nolearn/lasagne/base.py", line 372, in initialize
+    self.y_tensor_type,
+  File "/usr/local/lib/python3.5/dist-packages/nolearn/lasagne/base.py", line 518, in _create_iter_funcs
+    allow_input_downcast=True,
+  File "/usr/local/lib/python3.5/dist-packages/Theano-0.9.0-py3.5.egg/theano/compile/function.py", line 326, in function
+    output_keys=output_keys)
+  File "/usr/local/lib/python3.5/dist-packages/Theano-0.9.0-py3.5.egg/theano/compile/pfunc.py", line 486, in pfunc
+    output_keys=output_keys)
+  File "/usr/local/lib/python3.5/dist-packages/Theano-0.9.0-py3.5.egg/theano/compile/function_module.py", line 1795, in orig_function
+    defaults)
+  File "/usr/local/lib/python3.5/dist-packages/Theano-0.9.0-py3.5.egg/theano/compile/function_module.py", line 1661, in create
+    input_storage=input_storage_lists, storage_map=storage_map)
+  File "/usr/local/lib/python3.5/dist-packages/Theano-0.9.0-py3.5.egg/theano/gof/link.py", line 699, in make_thunk
+    storage_map=storage_map)[:3]
+  File "/usr/local/lib/python3.5/dist-packages/Theano-0.9.0-py3.5.egg/theano/gof/vm.py", line 1047, in make_all
+    impl=impl))
+TypeError: ('The following error happened while compiling the node', <pylearn2.sandbox.cuda_convnet.pool.MaxPoolGrad object at 0x7f6c3c2039e8>(GpuCo                           ntiguous.0, <pylearn2.sandbox.cuda_convnet.pool.MaxPool object at 0x7f6c3c7b2f28>.0, GpuContiguous.0), '\n', "make_thunk() got an unexpected keyword                            argument 'impl'")
