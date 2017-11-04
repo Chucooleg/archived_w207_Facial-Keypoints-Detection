@@ -1,0 +1,116 @@
+(Jennifer, some 205 helpful videos for you to run AWS)
+http://kevincrook.com/ucb/ucb.html
+
+Watch the 4 videos under 
+"Amazon Web Services (AWS) Videos"
+
+and the 1 videos under
+"Linux Videos"
+
+#------------------------------------------------------------------#
+(Everyone)
+
+The AMI id for our group: 
+Instance type: g.2.2xlarge
+
+Attached Volume: ignore for now, attach one if you need later
+
+Security Group: Use the same as the UCB 205 setup (Kevin Crook Video). For inbound port, I would also add 8888 for Jupyter notebook (all other fields same as other ports such as Hadoop)
+"""
++ Inbound Rules
+SSH | TCP | 22 | Custom | 0.0.0.0/0
+Custom TCP Rule | TCP | 4040 | Custom | 0.0.0.0/0 | spark
+Custom TCP Rule | TCP | 7180 | Custom | 0.0.0.0/0 | cloudera manager
+Custom TCP Rule | TCP | 8080 | Custom | 0.0.0.0/0 | web server
+Custom TCP Rule | TCP | 8888 | Custom | 0.0.0.0/0 | jupyter notebook
+Custom TCP Rule | TCP | 10000 | Custom | 0.0.0.0/0 | hive
+Custom TCP Rule | TCP | 50070 | Custom | 0.0.0.0/0 | hadoop
+--> this means any IP address can come in
+
++ Inbound Rules (can use default)
+All traffic | All | whatever | Custom 0.0.0.0/0
+--> this means I allow myself to go anywhere
+"""
+
+Download you keyfile. If you are using putty, remember to convert from .ppk to .pem using Puttygen. I prefer to set a passphrase when generating a .ppk from the .pem (sometimes it works better with things like pscp.exe, we will cover that soon)
+
+When you connect using DNS (either SSH from terminal or Putty), notice that our DNS starts with "ubuntu@" instead of "root@". This means we are using ubuntu instead of linux. And our default user name is "ubuntu" instead of "root"
+#------------------------------------------------------------------#
+(Everyone)
+
+This instance should have the libraries necessary to run the W7 notebook and Kaggle demo already. Though I notice some bugs with the Kaggle demo code which still needs to be solved yet.
+
+This instance has both python2.x.x and python3.x.x installed. Assume we will be using python3 primarily. 
+*When you run a python .py script use:
+python3 filename.py
+*When you install a package, find out how to install for python3, such as:
+pip3 install 
+(instead of pip install)
+#------------------------------------------------------------------#
+# Please use "git clone" to clone our team repo to your instance
+$cd ~
+$git clone https://YourUserName@github.com/Chucooleg/w207_Facial-Keypoints-Detection.git
+#------------------------------------------------------------------#
+# How to launch Jupyter Notebook with EC2 
+
+*On your AWS EC2 Terminal*
+# 1. start jupyter notebook, it is already installed in the instance
+$jupyter notebook --no-browser --port=8888
+# 2. the command will return a message, which include something that looks like this
+"""http://localhost:8888/?token=2ea9e1186aca105b03843eca77e2d4e92ca79be5059130a3"""
+# 3. copy everything after "token=", let's call this your "token" from now on
+
+*On your mac shell, or windows babun*
+(windows users : install babun from week 1 video of python bridgecourse, it is a shell for windows)
+# 1. we now ssh into the jupyter port of your AWS EC2 instance
+$ssh -i "path/to/your/keyfile.pem" -L 8000:localhost:8888 <your EC2 instance DNS copied from AWS EC2 console>
+# (My Example)
+"""ssh -i "C:\Users\chuco\Downloads\FK_3.pem" -L 8000:localhost:8888 ubuntu@ec2-52-205-207-157.compute-1.amazonaws.com"""
+# 2. now, launch a chrome or firefox brower locally on your computer
+# 3. navigate to this http
+http://localhost:8000
+# 4. then paste the copied "token" into the password field
+# 5. now you are all set! remember to save the ipynb to somewhere in your github directory when you are done!
+
+# 6. you can also try opening the 207 W7 noteboook on the Jupyter brower window
+~/w207_Facial-Keypoints-Detection/reference_code/NeuralNets.ipynb
+#------------------------------------------------------------------#
+# Copy files from your local windows to your AWS instance
+
+#1. Download pscp.exe, it is similar to putty
+https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
+#2. On windows, launch your "windows command prompt"
+# then we navigate to where your pscp.exe is sitting
+$cd /path/to/where/pscp.exe/is 
+# my example
+C:\Program Files\PuTTY
+
+#3. now, use pscp to upload files to the home directory of your AWS instance
+$pscp.exe -i <ppk path> <kaggle csv file path> <root@...com>:<AWS root directory>
+# my example
+$pscp.exe -i C:\Users\chuco\Downloads\FK_3.ppk "F:\001_Learn_UCB\207_MachineLearningIntro\Final_Project\kaggle_data\*" ubuntu@ec2-52-205-207-157.compute-1.amazonaws.com:
+
+#4. If the window command prompt asks you for a passphrase, use the passphrase you set for the .ppk when you first converted the .pem into .ppk in puttygen
+#5. Depending on file size, it may take a while
+
+#6. On AWS EC2 instance, check your home directory to see if files are there
+$cd ~
+$ls -l
+#7. If you uploaded the competition data, and want to use it for the tutorial, move them into the following directory
+cd ~
+mkdir data
+mkdir data//kaggle-facial-keypoint-detection
+mv *.csv data//kaggle-facial-keypoint-detection
+(i used *.csv in the last step, because all my .csv in the home directory are the competition csv files)
+(you can also use the followings)
+mv filename.csv data//kaggle-facial-keypoint-detection
+mv filename.py data//kaggle-facial-keypoint-detection
+
+#7. try Kaggle competition example
+# sample code is sitting in our team github repo
+$cd ~/w207_Facial_Keypoints-Detection
+$cd reference_code
+$ls -l
+$python3 kfkd.py 
+#------------------------------------------------------------------#
