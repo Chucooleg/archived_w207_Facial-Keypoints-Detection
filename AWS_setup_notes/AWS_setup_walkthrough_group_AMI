@@ -114,3 +114,6 @@ $cd reference_code
 $ls -l
 $python3 kfkd.py 
 #------------------------------------------------------------------#
+# Optional topic, saving your instance as an AMI for future use
+
+http://kevincrook.com/ucb/videos/W205_Lab_03_06.mp4
