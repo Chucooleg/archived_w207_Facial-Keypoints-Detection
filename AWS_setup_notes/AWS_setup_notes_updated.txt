@@ -70,6 +70,8 @@ git clone git://github.com/lisa-lab/pylearn2.git
 cd pylearn2
 sudo python3 setup.py develop
 
+# check pickle or cpickle
+import cPickle as pickle
 ---------------------------------------------------------
 
 # move data files form local computer to AWS (windows only)
