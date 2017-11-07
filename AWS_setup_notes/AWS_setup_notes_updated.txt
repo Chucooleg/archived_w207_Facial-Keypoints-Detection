@@ -38,7 +38,7 @@ jupyter notebook --no-browser --port=8888
 
 # babun / shell
 # cd to where your .pem key file is
-ssh -i "C:\Users\chuco\Downloads\FK_3.pem" -L 8000:localhost:8888 ubuntu@ec2-52-205-207-157.compute-1.amazonaws.com
+ssh -i "C:\Users\chuco\Downloads\FK_3.pem" -L 8000:localhost:8888 ubuntu@ec2-34-235-131-4.compute-1.amazonaws.com
 
 # then launch in local chrome or firefox browser
 http://localhost:8000
@@ -70,8 +70,17 @@ git clone git://github.com/lisa-lab/pylearn2.git
 cd pylearn2
 sudo python3 setup.py develop
 
-# check pickle or cpickle
-import cPickle as pickle
+# DONT DO
+import cpickle
+# INSTEAD
+import pickle
+
+# DONT DO
+from theano.tensor.signal import downsample
+pooled_out = downsample.max_pool_2d( ... )
+# INSTEAD
+from theano.tensor.signal import pool
+pooled_out = pool.pool_2d( ... )
 ---------------------------------------------------------
 
 # move data files form local computer to AWS (windows only)

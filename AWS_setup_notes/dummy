@@ -1,14 +1,24 @@
 python3 kfkd.py
 python3 kfkd2.py
 
+ubuntu@ec2-54-91-13-15.compute-1.amazonaws.com
+
+FTRAIN = '~/data/kaggle-facial-keypoint-detection/training.csv'
+FTEST = '~/data/kaggle-facial-keypoint-detection/test.csv'
+
+Jupyter
+91b0403939017323d76dbe931b738ad364de13835a950952
+
+AMI
+W207_ADJL
+
+sudo pip3 install numpy==1.13.1
 
 from theano.tensor.signal.pool import pool_2d as max_pool_2d
 # NOT WORKING
 from theano.tensor.signal.pool import max_pool_2d
 # CHANGE TO
 from theano.tensor.signal.pool import pool_2d as max_pool_2d
-
-
 
 
 To use this script, first run this to fit your first model:
@@ -20,7 +30,6 @@ Plot their error curves:
   python3 kfkd2.py plot_learning_curves net-specialists.pickle
 And finally make predictions to submit to Kaggle:
   python3 kfkd2.py predict net-specialists.pickle
-
 
 
 

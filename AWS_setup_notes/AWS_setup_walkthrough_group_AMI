@@ -10,7 +10,8 @@ and the 1 videos under
 #------------------------------------------------------------------#
 (Everyone)
 
-The AMI id for our group: 
+The AMI id for our group: ami-23eb5859
+The AMi name: ADJL
 Instance type: g.2.2xlarge
 
 Attached Volume: ignore for now, attach one if you need later
@@ -47,10 +48,12 @@ python3 filename.py
 pip3 install 
 (instead of pip install)
 #------------------------------------------------------------------#
+(Everyone)
 # Please use "git clone" to clone our team repo to your instance
 $cd ~
 $git clone https://YourUserName@github.com/Chucooleg/w207_Facial-Keypoints-Detection.git
 #------------------------------------------------------------------#
+(Everyone)
 # How to launch Jupyter Notebook with EC2 
 
 *On your AWS EC2 Terminal*
@@ -75,6 +78,7 @@ http://localhost:8000
 # 6. you can also try opening the 207 W7 noteboook on the Jupyter brower window
 ~/w207_Facial-Keypoints-Detection/reference_code/NeuralNets.ipynb
 #------------------------------------------------------------------#
+(Everyone)
 # Copy files from your local windows to your AWS instance
 
 #1. Download pscp.exe, it is similar to putty
@@ -113,6 +117,22 @@ $cd ~/w207_Facial_Keypoints-Detection
 $cd reference_code
 $ls -l
 $python3 kfkd.py 
+#------------------------------------------------------------------#
+(Everyone)
+# Here are couple things you should be careful when using our python3
+
+# DONT DO
+import cpickle
+# INSTEAD
+import pickle
+
+# 207 W7 code
+# DONT DO
+from theano.tensor.signal import downsample
+pooled_out = downsample.max_pool_2d( ... )
+# INSTEAD
+from theano.tensor.signal import pool
+pooled_out = pool.pool_2d( ... )
 #------------------------------------------------------------------#
 # Optional topic, saving your instance as an AMI for future use
 
