@@ -25,6 +25,7 @@ LeNet-5, convolutional neural networks | http://yann.lecun.com/exdb/lenet/
 New Initiation Scheme(Glorot,Bengio) | http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf
 Standford Deep Learning Tutorial | http://deeplearning.stanford.edu/tutorial/
 deeplearning.net CNN tutorial| http://deeplearning.net/tutorial/lenet.html
+On the importance of initialization and momentum in deep learning | http://techtalks.tv/talks/on-the-importance-of-initialization-and-momentum-in-deep-learning/58189/
 (Outdated) AWS AMI setup | https://www.kaggle.com/c/facial-keypoints-detection#deep-learning-tutorial
 (Outdated) How to install Theano on Amazon EC2 GPU instances for deep learning | markus.com/install-theano-on-aws/
 
