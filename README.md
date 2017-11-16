@@ -26,6 +26,8 @@ New Initiation Scheme(Glorot,Bengio) | http://proceedings.mlr.press/v9/glorot10a
 Standford Deep Learning Tutorial | http://deeplearning.stanford.edu/tutorial/
 deeplearning.net CNN tutorial| http://deeplearning.net/tutorial/lenet.html
 On the importance of initialization and momentum in deep learning | http://techtalks.tv/talks/on-the-importance-of-initialization-and-momentum-in-deep-learning/58189/
+Paper on Dropouts: Improving neural networks by preventing co-adaptation of feature detectors | https://arxiv.org/abs/1207.0580
+Improving the way neural nets learn | http://neuralnetworksanddeeplearning.com/chap3.html
 (Outdated) AWS AMI setup | https://www.kaggle.com/c/facial-keypoints-detection#deep-learning-tutorial
 (Outdated) How to install Theano on Amazon EC2 GPU instances for deep learning | markus.com/install-theano-on-aws/
 
@@ -37,16 +39,36 @@ AWS Instance setup walkthrough | /AWS_setup_notes/AWS_setup_walkthrough_group_AM
 AWS AMI setup instuctions | /AWS_setup_notes/AWS_setup_notes_updated.txt | Legg
 
 
+## Training Code Files
+
+Description | File Name | Last Author
+----------- | ----------- | -----------
+Baseline Net6 Training | ./production_code/Baseline_Net6_Training.ipynb | Legg
+Baseline Net7 Training | ./production_code/Baseline_Net7_Training.ipynb | Alberto
+
+
+## Pickles
+
+Description | Location
+----------- | -----------
+Baseline pickles | https://drive.google.com/drive/folders/1905nsZciKMTw2IeH8_9rpGQBAygbTuc6?usp=sharing
+
+
 ## Reference Code Files
 
-Description | File Name | Author
+Description | File Name | Last Author
 ----------- | ----------- | -----------
 w207 Theano Demo | ./reference_code/NeuralNets.ipynb | Todd 
 Lsagne Test | ./reference_code/mnist.ipynb | Lasagne Library
 Nouri Demo final solution | ./code/kfkd.ipynb | Nouri 
 
+
 ## Feature Engineering Files
 
 Description | File Name | Last Author
 -----|--------|------------
+
+
+
+
 
