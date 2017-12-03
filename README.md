@@ -33,18 +33,19 @@ Improving the way neural nets learn | http://neuralnetworksanddeeplearning.com/c
 
 ## General Files
 
-Description | File Name | Last Author
------------ | ----------- | -----------
-AWS Instance setup walkthrough | /AWS_setup_notes/AWS_setup_walkthrough_group_AMI.txt | Legg
-AWS AMI setup instuctions | /AWS_setup_notes/AWS_setup_notes_updated.txt | Legg
+Description | File Name
+----------- | -----------
+AWS Instance setup walkthrough | /AWS_setup_notes/AWS_setup_walkthrough_group_AMI.txt
+AWS AMI setup instuctions | /AWS_setup_notes/AWS_setup_notes_updated.txt
 
 
 ## Training Code Files
 
-Description | File Name | Last Author
------------ | ----------- | -----------
-Baseline Net6 Training | ./production_code/Baseline_Net6_Training.ipynb | Legg
-Baseline Net7 Training | ./production_code/Baseline_Net7_Training.ipynb | Alberto
+Description | File Name
+----------- | -----------
+Baseline Net6 Training | ./production_code/Baseline_Net6_Training.ipynb
+Baseline Net7 Training | ./production_code/Baseline_Net7_Training.ipynb
+Baseline Notebook | ./production_code/Baseline_Model.ipynb
 
 
 ## Pickles
