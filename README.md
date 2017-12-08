@@ -48,12 +48,12 @@ Baseline Net7 Training | ./production_code/Baseline_Net7_Training.ipynb
 Baseline Notebook | ./production_code/Baseline_Model.ipynb
 
 
-## Pickles
+## Trained Models (Pickles/Params)
 
 Description | Location
 ----------- | -----------
 Baseline pickles | https://drive.google.com/drive/folders/1905nsZciKMTw2IeH8_9rpGQBAygbTuc6?usp=sharing
-
+Param files 20171207 | https://drive.google.com/drive/folders/1dV_21lJLjcaLttn4rBozf-SNbBFTYTZ_
 
 ## Reference Code Files
 
