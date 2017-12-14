@@ -67,8 +67,10 @@ $jupyter notebook --no-browser --port=8888
 (windows users : install babun from week 1 video of python bridgecourse, it is a shell for windows)
 # 1. we now ssh into the jupyter port of your AWS EC2 instance
 $ssh -i "path/to/your/keyfile.pem" -L 8000:localhost:8888 <your EC2 instance DNS copied from AWS EC2 console>
-# (My Example)
+# (My Examples)
 """ssh -i "C:\Users\chuco\Downloads\FK_3.pem" -L 8000:localhost:8888 ubuntu@ec2-52-205-207-157.compute-1.amazonaws.com"""
+"""ssh -i "C:\Users\chuco\Downloads\0207_specialist_3_1.pem" -L 8000:localhost:8888 ubuntu@ec2-54-86-246-240.compute-1.amazonaws.com"""
+
 # 2. now, launch a chrome or firefox brower locally on your computer
 # 3. navigate to this http
 http://localhost:8000
@@ -92,8 +94,10 @@ C:\Program Files\PuTTY
 
 #3. now, use pscp to upload files to the home directory of your AWS instance
 $pscp.exe -i <ppk path> <kaggle csv file path> <root@...com>:<AWS root directory>
-# my example
+# my examples
 $pscp.exe -i C:\Users\chuco\Downloads\FK_3.ppk "F:\001_Learn_UCB\207_MachineLearningIntro\Final_Project\kaggle_data\*" ubuntu@ec2-52-205-207-157.compute-1.amazonaws.com:
+$pscp.exe -i C:\Users\chuco\Downloads\207_specialists_AlbertoAMI.ppk "C:\Users\chuco\Documents\MIDS-W207\Final_Project_FK\legg_local_code\Final_Project_V3_0.ipynb" ubuntu@ec2-54-86-246-240.compute-1.amazonaws.com:
+
 
 #4. If the window command prompt asks you for a passphrase, use the passphrase you set for the .ppk when you first converted the .pem into .ppk in puttygen
 #5. Depending on file size, it may take a while
